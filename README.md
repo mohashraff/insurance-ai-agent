@@ -53,7 +53,7 @@ This app depends on a local Ollama instance for the LLM and embeddings, so it's 
    ```
 2. Clone this repo and install dependencies:
    ```
-   git clone <[your-repo-url](https://github.com/mohashraff/insurance-ai-agent.git)>
+   git clone <https://github.com/mohashraff/insurance-ai-agent.git>
    cd insurance-ai-agent
    pip install -r requirements.txt
    ```
