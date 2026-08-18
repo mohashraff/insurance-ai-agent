@@ -41,6 +41,31 @@ Fraud model trained on a healthcare insurance claims dataset from Kaggle.
 - **Explainability**: wrapped predictions with a SHAP `TreeExplainer`, aggregating one-hot-encoded features back to original claim fields for human-readable reasons.
 - **Deterministic-vs-generative routing**: a regex router distinguishes "give me the model's answer" from "explain/contextualize it," so the LLM never quietly substitutes its own judgment for the trained classifier.
 
+
+## Running it locally
+
+This app depends on a local Ollama instance for the LLM and embeddings, so it's designed to run locally rather than on a cloud host.
+
+1. Install [Ollama](https://ollama.com), then pull the models:
+   ```
+   ollama pull qwen2.5-coder
+   ollama pull nomic-embed-text
+   ```
+2. Clone this repo and install dependencies:
+   ```
+   git clone <your-repo-url>
+   cd insurance-ai-agent
+   pip install -r requirements.txt
+   ```
+3. Run the app:
+   ```
+   streamlit run app.py
+   ```
+4. In the browser tab that opens, upload a claims CSV/XLSX (must include a `Claim_ID` column and the core fields the model expects) and, optionally, a PDF for the knowledge base. Then ask questions in the chat, e.g.:
+   - `"is claim 233 fraud?"`
+   - `"is claim 233 fraud and why?"`
+   - `"does claim 233 match any known fraud typology?"`
+
 ## Status
 
 Working local prototype, built as a learning project in hybrid ML/LLM system design and explainable AI.
